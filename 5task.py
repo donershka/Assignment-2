@@ -19,3 +19,9 @@ def is_isomorphic(s: str, t: str) -> bool:
             map_t_to_s[c2] = c1
 
     return True
+
+
+s = input()
+t = input()
+
+print(is_isomorphic(s, t))
