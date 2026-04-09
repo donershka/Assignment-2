@@ -16,3 +16,22 @@ class MyStack:
 
     def top(self):
         return self.q1[0]
+
+    def empty(self):
+        return len(self.q1) == 0
+
+
+n = int(input())
+s = MyStack()
+
+for _ in range(n):
+    cmd = input().split()
+
+    if cmd[0] == "push":
+        s.push(int(cmd[1]))
+    elif cmd[0] == "pop":
+        print(s.pop())
+    elif cmd[0] == "top":
+        print(s.top())
+    elif cmd[0] == "empty":
+        print(s.empty())
