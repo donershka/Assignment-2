@@ -1,22 +1,21 @@
-def is_isomorphic(s, t):
+def is_isomorphic(s: str, t: str) -> bool:
     if len(s) != len(t):
         return False
 
-    map_s_t = {}
-    map_t_s = {}
+    map_s_to_t = {}
+    map_t_to_s = {}
 
-    for i in range(len(s)):
-        if s[i] in map_s_t and map_s_t[s[i]] != t[i]:
-            return False
-        if t[i] in map_t_s and map_t_s[t[i]] != s[i]:
-            return False
+    for c1, c2 in zip(s, t):
+        if c1 in map_s_to_t:
+            if map_s_to_t[c1] != c2:
+                return False
+        else:
+            map_s_to_t[c1] = c2
 
-        map_s_t[s[i]] = t[i]
-        map_t_s[t[i]] = s[i]
+        if c2 in map_t_to_s:
+            if map_t_to_s[c2] != c1:
+                return False
+        else:
+            map_t_to_s[c2] = c1
 
     return True
-
-
-s = input()
-t = input()
-print(is_isomorphic(s, t))
